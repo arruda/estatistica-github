@@ -1,4 +1,3 @@
-
 ##Links:
 
 https://api.github.com/search/repositories?q=+stars:%3E=200&sort=stars&order=desc&page=1&per_page=100
@@ -38,3 +37,10 @@ Caso queira mesmo, esses dados extras e mais elaborados estão listados aqui: ht
 Só isso já é o suficiente para ter um BD, 300 linhas, 10 variaveis umas que provavelmente tem ligação umas com as outras (como watchers/forks/stars) outras que provavelmente não (size e created_at por exemplo).
 
 
+# gerar o BD:
+
+Rodar:
+
+`pip install PyGithub`
+
+Em seguida rodar o arquivo gerar_db.py: `python gerar_db.py`
