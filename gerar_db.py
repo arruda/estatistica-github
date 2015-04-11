@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 import time
 import csv
+import os
 
-from github import Github
+from github import Github, GithubException
 
 DAYS_WEEKS = (
     'Dom',
@@ -14,6 +15,17 @@ DAYS_WEEKS = (
     'Sex',
     'Sab'
 )
+
+def get_username_and_pass():
+    """
+    Pega username e password de env var ou
+    retorna  None se não houver
+    """
+    user = os.environ.get('GH_U')
+    pwd = os.environ.get('GH_P')
+
+    return [user, pwd]
+
 
 
 def get_commits_per_day_of_week(repo):
@@ -47,15 +59,23 @@ def get_and_wait_for_commits_per_day_of_week(repo, secs=12):
     """
     Chama a função `get_commits_per_day_of_week` mas
     envolvendo a função garantindo que fique tentando
-    pegar o resultado a cada 12 secs até ter algo.
+    pegar o resultado a cada x secs até ter algo.
     """
     commits_per_day_of_week = None
     while(commits_per_day_of_week is None):
         print "getting commits for %s" % repo.name
-        commits_per_day_of_week = get_commits_per_day_of_week(repo)
+        try:
+            commits_per_day_of_week = get_commits_per_day_of_week(repo)
+        except Exception, e:
+            # import bpdb; bpdb.set_trace()
+            pass
+
+
         if commits_per_day_of_week is None:
             print "no result yet, waiting %d secs" % secs
-            time.sleep(secs)
+        else:
+            print "Result found, waiting %d secs before other request" % secs
+        time.sleep(secs)
 
     return commits_per_day_of_week
 
@@ -93,7 +113,7 @@ def write_repo_row(repos_csv, repo):
     ]
 
 
-    commits_per_day_of_week = get_and_wait_for_commits_per_day_of_week(repo)
+    commits_per_day_of_week = get_and_wait_for_commits_per_day_of_week(repo, secs=0)
 
     # coloca os dados do num commits por dia da semana na linha atual
     row_data.extend(get_commits_per_day_of_week(repo))
@@ -149,10 +169,21 @@ def get_repos():
     pega do github os dados dos repositorios
     """
 
-    repos = []
-    g = Github(per_page=100)  # defini que o num resultados p/ pagina é 100
+
+    github_kwargs = {
+        'per_page': 100
+    }
+    # se tiver infos de username e login então pega elas das
+    # env vars `GH_U` e `GH_P` respectivamente
+    username, passwd = get_username_and_pass()
+    if username is not None and passwd is not None:
+        github_kwargs['login_or_token'] = username
+        github_kwargs['password'] = passwd
+
+    g = Github(**github_kwargs)  # defini que o num resultados p/ pagina é 100
     search = g.search_repositories(query="stars:>=200", sort="stars", order="desc")
 
+    repos = []
     # pega as 3 paginas, isso é: os 300 primeiros
     for i in xrange(0, 3):
         page = search.get_page(0)
@@ -166,7 +197,7 @@ def get_and_save_repos_to_csv_file():
     "fetch the repos and save them to a csv file"
     repos = get_repos()
 
-    save_repos_to_csv(repos, filename="repos_cmt_day_.csv")
+    save_repos_to_csv(repos, filename="repos_cmt_day.csv")
 
 
 if __name__ == "__main__":
