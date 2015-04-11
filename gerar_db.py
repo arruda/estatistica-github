@@ -185,7 +185,7 @@ def get_repos():
 
     repos = []
     # pega as 3 paginas, isso é: os 300 primeiros
-    for i in xrange(0, 3):
+    for i in xrange(0, 10):
         page = search.get_page(0)
         # coloca os resultados da pagina na lista de repositorios
         repos.extend(page)
@@ -197,7 +197,7 @@ def get_and_save_repos_to_csv_file():
     "fetch the repos and save them to a csv file"
     repos = get_repos()
 
-    save_repos_to_csv(repos, filename="repos_cmt_day.csv")
+    save_repos_to_csv(repos, filename="repos_cmt_day_maior.csv")
 
 
 if __name__ == "__main__":
