@@ -2,11 +2,11 @@
 
 [repos_cmt_day_maior.csv](/repos_cmt_day_maior.csv)
 
-## Alguns dados possiveis (sem contar com os extras):
+## Variaveis:
  * name
  * owner_type: (user ou organization)
- * created_at
- * updated_at
+ * created_at (separar em colunas para dia, mes e ano?)
+ * updated_at (separar em colunas para dia, mes e ano?)
  * size (tamanho do repositorio)
  * stargazers_count (numero de pessoas que deram uma estrela no repositorio)
  * watchers_count (numero de pessoas que estão 'assinando' esse repositorio, e recebendo atualizações do que acontece nele)
