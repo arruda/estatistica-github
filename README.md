@@ -44,3 +44,7 @@ para cada item da response das chamadas nesses links:
 acessar a api: https://api.github.com/repos/:owner/:repo/stats/<dado_a_ser_buscado>
 
 Caso queira mesmo, esses dados extras e mais elaborados estão listados aqui: https://developer.github.com/v3/repos/statistics/
+
+
+# Rodar script R
+`R CMD BATCH relatorio.R`
