@@ -39,3 +39,16 @@ do.call(rbind, lapply(gh, function(x) if(is.numeric(x)){
     shapiro.test(x)[c("statistic", "p.value")]
 }))
 sink()
+
+
+# Correlacoes
+
+
+png("correlacoes/stars_vs_has_wiki.png")
+Boxplot(Stars~Has.Wiki, data=gh, id.method="y")
+dev.off()
+
+png("correlacoes/stars_vs_Watchers.png")
+scatterplot(Watchers~Stars, reg.line=lm, smooth=FALSE, spread=TRUE, id.method='mahal', id.n = 2,
+   boxplots=FALSE, span=0.5, data=gh)
+dev.off()
