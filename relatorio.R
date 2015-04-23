@@ -12,7 +12,15 @@ dfplot <- function(data.frame)
   for(i in 1:ln){
     mname <- substitute(df[,i])
     filename <- paste("histograms/", names(df)[i], '.png', sep='')
-    png(filename)
+
+    # se for a variavel Language, então muda o tamanho da tela, caso contrario deixa normal
+    if(names(df)[i] == "Language"){
+        png(filename, width=2050)
+    }
+    else{
+        png(filename)
+    }
+
     if(is.factor(df[,i])){
         plot(df[,i],main=names(df)[i])
     }
