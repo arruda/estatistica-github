@@ -183,10 +183,13 @@ def get_repos():
 
     repos = []
     # pega as 30 paginas, isso é: os 3000 primeiros
-    for i in xrange(0, 30):
+    for i in xrange(0, 40):
         page = search.get_page(0)
         # coloca os resultados da pagina na lista de repositorios
         repos.extend(page)
+        # a cada 21 buscas para e espera um pouco (para resetar o limite da api)
+        if i % 20 == 0:
+            time.sleep(60)  # para 60 segundos
 
     return repos
 
