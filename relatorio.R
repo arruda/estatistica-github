@@ -25,7 +25,7 @@ dfplot <- function(data.frame)
         plot(df[,i],main=names(df)[i])
     }
     else{
-        hist(df[,i],main=names(df)[i], scale="frequency", breaks="Sturges", col="darkgray")
+        Hist(df[,i],main=names(df)[i], scale="frequency", breaks="Sturges", col="darkgray", xlab=names(df)[i])
     }
     dev.off()
   }
