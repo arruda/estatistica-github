@@ -16,6 +16,7 @@ DAYS_WEEKS = (
     'Sab'
 )
 
+
 def get_username_and_pass():
     """
     Pega username e password de env var ou
@@ -25,7 +26,6 @@ def get_username_and_pass():
     pwd = os.environ.get('GH_P')
 
     return [user, pwd]
-
 
 
 def get_commits_per_day_of_week(repo):
@@ -112,7 +112,6 @@ def write_repo_row(repos_csv, repo):
         repo.open_issues_count  # Numero de Bugs/melhorias relatadas, em aberto
     ]
 
-
     commits_per_day_of_week = get_and_wait_for_commits_per_day_of_week(repo, secs=0)
 
     # coloca os dados do num commits por dia da semana na linha atual
@@ -169,7 +168,6 @@ def get_repos():
     pega do github os dados dos repositorios
     """
 
-
     github_kwargs = {
         'per_page': 100
     }
@@ -184,8 +182,8 @@ def get_repos():
     search = g.search_repositories(query="stars:>=200", sort="stars", order="desc")
 
     repos = []
-    # pega as 3 paginas, isso é: os 300 primeiros
-    for i in xrange(0, 10):
+    # pega as 30 paginas, isso é: os 3000 primeiros
+    for i in xrange(0, 30):
         page = search.get_page(0)
         # coloca os resultados da pagina na lista de repositorios
         repos.extend(page)
@@ -195,6 +193,7 @@ def get_repos():
 
 def get_and_save_repos_to_csv_file():
     "fetch the repos and save them to a csv file"
+    import bpdb; bpdb.set_trace()
     repos = get_repos()
 
     save_repos_to_csv(repos, filename="repos_cmt_day_maior.csv")
