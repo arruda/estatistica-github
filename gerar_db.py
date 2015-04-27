@@ -193,7 +193,6 @@ def get_repos():
 
 def get_and_save_repos_to_csv_file():
     "fetch the repos and save them to a csv file"
-    import bpdb; bpdb.set_trace()
     repos = get_repos()
 
     save_repos_to_csv(repos, filename="repos_cmt_day_maior.csv")
