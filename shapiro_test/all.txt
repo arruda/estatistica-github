@@ -1,14 +1,20 @@
+
+> do.call(rbind, lapply(gh, function(x) if(is.numeric(x)){
++     shapiro.test(x)[c("statistic", "p.value")]
++ }))
                statistic p.value     
-Size           0.4625504 1.741049e-47
-Stars          0.6385509 1.648809e-41
-Watchers       0.6385509 1.648809e-41
-Forks          0.4231987 1.356853e-48
-Open.Issues    0.5694639 4.301478e-44
-Num..Cmts..Dom 0.6729734 4.560082e-40
-Num..Cmts..Seg 0.7401387 7.421411e-37
-Num..Cmts..Ter 0.7298224 2.170064e-37
-Num..Cmts..Qua 0.7358314 4.420586e-37
-Num..Cmts..Qui 0.7288452 1.935301e-37
-Num..Cmts..Sex 0.7271098 1.580511e-37
-Num..Cmts..Sab 0.6501251 4.885989e-41
-Total.Commits  0.7300168 2.220159e-37
+Size           0.4608039 8.538334e-70
+Stars          0.6425614 6.797538e-62
+Watchers       0.6425614 6.797538e-62
+Forks          0.419053  2.791604e-71
+Open.Issues    0.5677389 1.738334e-65
+Num..Cmts..Dom 0.6729844 3.004892e-60
+Num..Cmts..Seg 0.7407676 4.645715e-56
+Num..Cmts..Ter 0.7314626 1.099134e-56
+Num..Cmts..Qua 0.7396523 3.899748e-56
+Num..Cmts..Qui 0.7302716 9.167268e-57
+Num..Cmts..Sex 0.7275597 6.079683e-57
+Num..Cmts..Sab 0.6534298 2.54747e-61 
+Total.Commits  0.7310494 1.031994e-56
+
+> sink()
