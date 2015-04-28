@@ -17,6 +17,10 @@ DAYS_WEEKS = (
 )
 
 
+class SemCommitsExecption(Exception):
+    pass
+
+
 def get_username_and_pass():
     """
     Pega username e password de env var ou
@@ -62,20 +66,22 @@ def get_and_wait_for_commits_per_day_of_week(repo, secs=12):
     pegar o resultado a cada x secs até ter algo.
     """
     commits_per_day_of_week = None
+    time_total = 0
     while(commits_per_day_of_week is None):
         print "getting commits for %s" % repo.name
         try:
             commits_per_day_of_week = get_commits_per_day_of_week(repo)
         except Exception, e:
-            # import bpdb; bpdb.set_trace()
             pass
-
 
         if commits_per_day_of_week is None:
             print "no result yet, waiting %d secs" % secs
         else:
             print "Result found, waiting %d secs before other request" % secs
         time.sleep(secs)
+        time_total += secs+1
+        if time_total >= 15:
+            raise SemCommitsExecption
 
     return commits_per_day_of_week
 
@@ -92,6 +98,13 @@ def get_total_commits_from_weekly_total(commits_per_day_of_week):
     return total
 
 
+def escape_csharp_lang_name(repo):
+    if repo.language == "C#":
+        return "\"C#\""
+    else:
+        return repo.language
+
+
 def write_repo_row(repos_csv, repo):
     """
     escreve os dados do repositorio atual,
@@ -106,7 +119,7 @@ def write_repo_row(repos_csv, repo):
         repo.size,  # Tamanho do repositorio
         repo.stargazers_count,  # Numero de Estrelas
         repo.watchers_count,  # Numero de pessoas seguindo atualizações
-        repo.language,  # Linguagem principal
+        escape_csharp_lang_name(repo),  # Linguagem principal
         repo.has_wiki,  # Tem wiki?
         repo.forks,  # Quantas vertentes (forks) foram criadas
         repo.open_issues_count  # Numero de Bugs/melhorias relatadas, em aberto
@@ -132,7 +145,7 @@ def save_repos_to_csv(repos, filename="repos.csv"):
     salva uma lista de repos num arquivo csv no diretorio atual
     """
 
-    with open(filename, 'wb') as csvfile:
+    with open(filename, 'ab') as csvfile:
         repos_csv = csv.writer(csvfile, delimiter=';')
 
         row_data = [
@@ -158,9 +171,16 @@ def save_repos_to_csv(repos, filename="repos.csv"):
         # coloca ja os titulos das colunas
         repos_csv.writerow(row_data)
 
+        error_repos = []
         # para cada repositorio escreve os dados na proxima linha
         for repo in repos:
-            repos_csv = write_repo_row(repos_csv, repo)
+            try:
+                repos_csv = write_repo_row(repos_csv, repo)
+            except SemCommitsExecption:
+                error_repos.append(repo)
+
+        for error in error_repos:
+            print "Error on %s" % error.name
 
 
 def get_repos():
