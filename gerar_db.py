@@ -210,7 +210,8 @@ def get_mais_repos(github, repos_anterior):
     pega do github uma busca removendo uma boa parte dos
     resultados já recuperados pelo `get_repos`
     """
-    search = github.search_repositories(query="stars:<=2990", sort="stars", order="desc")
+    import bpdb; bpdb.set_trace()
+    search = github.search_repositories(query="stars:<=3000", sort="stars", order="desc")
     ultimo_repo = repos_anterior[-1]
 
     repos = []
@@ -222,6 +223,7 @@ def get_mais_repos(github, repos_anterior):
         repos.extend(page)
         print "Done with page %d" % i
 
+    import bpdb; bpdb.set_trace()
     # achar até onde esta repetido com a lista anterior
     repos_correto = []
     i = -1
@@ -229,6 +231,8 @@ def get_mais_repos(github, repos_anterior):
         if repos[j].name == ultimo_repo.name:
             i = j
             break
+
+    import bpdb; bpdb.set_trace()
     if i < 0:
         raise Exception("Nao achou onde estava a repeticao")
     else:
@@ -255,7 +259,7 @@ def get_and_save_repos_to_csv_file():
 
     repos = get_repos(g)
     # pega mais alguns resultados, uns 900 talvez
-    repos.extend(get_repos(g, repos))
+    repos.extend(get_mais_repos(g, repos))
 
     save_repos_to_csv(repos, filename="repos_cmt_day_maior.csv")
 
