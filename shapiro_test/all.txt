@@ -1,14 +1,14 @@
                statistic p.value     
-Size           0.2782376 3.528308e-52
-Stars          0.5329366 2.633395e-45
-Watchers       0.5329366 2.633395e-45
-Forks          0.3093016 1.841168e-51
-Open.Issues    0.4596693 1.497454e-47
-Num..Cmts..Dom 0.5124327 5.812968e-46
-Num..Cmts..Seg 0.5122879 5.752371e-46
-Num..Cmts..Ter 0.5081181 4.258399e-46
-Num..Cmts..Qua 0.5010983 2.578916e-46
-Num..Cmts..Qui 0.5066034 3.819729e-46
-Num..Cmts..Sex 0.5129761 6.046312e-46
-Num..Cmts..Sab 0.4906513 1.235783e-46
-Total.Commits  0.5156452 7.339582e-46
+Size           0.104847  6.096388e-70
+Stars          0.6244819 4.959984e-54
+Watchers       0.6244819 4.959984e-54
+Forks          0.285173  1.28099e-65 
+Open.Issues    0.3951571 1.683775e-62
+Num..Cmts..Dom 0.4320388 2.401673e-61
+Num..Cmts..Seg 0.4235531 1.286594e-61
+Num..Cmts..Ter 0.4216586 1.120428e-61
+Num..Cmts..Qua 0.4123029 5.69145e-62 
+Num..Cmts..Qui 0.4176046 8.345033e-62
+Num..Cmts..Sex 0.4223538 1.178704e-61
+Num..Cmts..Sab 0.4121346 5.623006e-62
+Total.Commits  0.4302175 2.099157e-61
