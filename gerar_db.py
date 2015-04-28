@@ -181,15 +181,18 @@ def get_repos():
     g = Github(**github_kwargs)  # defini que o num resultados p/ pagina é 100
     search = g.search_repositories(query="stars:>=200", sort="stars", order="desc")
 
+    # import bpdb; bpdb.set_trace()
     repos = []
-    # pega as 30 paginas, isso é: os 3000 primeiros
-    for i in xrange(0, 40):
-        page = search.get_page(0)
+    # pega as 10 paginas, isso é: os 1000 primeiros
+    for i in xrange(0, 10):
+        print "Getting page %d" % i
+        page = search.get_page(i)
         # coloca os resultados da pagina na lista de repositorios
         repos.extend(page)
+        print "Done with page %d" % i
         # a cada 21 buscas para e espera um pouco (para resetar o limite da api)
-        if i % 20 == 0:
-            time.sleep(60)  # para 60 segundos
+        # if i % 20 == 0:
+        #     time.sleep(20)  # para 60 segundos
 
     return repos
 
