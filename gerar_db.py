@@ -145,7 +145,7 @@ def save_repos_to_csv(repos, filename="repos.csv"):
     salva uma lista de repos num arquivo csv no diretorio atual
     """
 
-    with open(filename, 'ab') as csvfile:
+    with open(filename, 'wr') as csvfile:
         repos_csv = csv.writer(csvfile, delimiter=';')
 
         row_data = [
