@@ -183,23 +183,11 @@ def save_repos_to_csv(repos, filename="repos.csv"):
             print "Error on %s" % error.name
 
 
-def get_repos():
+def get_repos(github):
     """
     pega do github os dados dos repositorios
     """
-
-    github_kwargs = {
-        'per_page': 100
-    }
-    # se tiver infos de username e login então pega elas das
-    # env vars `GH_U` e `GH_P` respectivamente
-    username, passwd = get_username_and_pass()
-    if username is not None and passwd is not None:
-        github_kwargs['login_or_token'] = username
-        github_kwargs['password'] = passwd
-
-    g = Github(**github_kwargs)  # defini que o num resultados p/ pagina é 100
-    search = g.search_repositories(query="stars:>=200", sort="stars", order="desc")
+    search = github.search_repositories(query="stars:>=200", sort="stars", order="desc")
 
     # import bpdb; bpdb.set_trace()
     repos = []
@@ -217,9 +205,57 @@ def get_repos():
     return repos
 
 
+def get_mais_repos(github, repos_anterior):
+    """
+    pega do github uma busca removendo uma boa parte dos
+    resultados já recuperados pelo `get_repos`
+    """
+    search = github.search_repositories(query="stars:<=2990", sort="stars", order="desc")
+    ultimo_repo = repos_anterior[-1]
+
+    repos = []
+    # pega as 10 paginas, isso é: os 1000 primeiros
+    for i in xrange(0, 10):
+        print "Getting page %d" % i
+        page = search.get_page(i)
+        # coloca os resultados da pagina na lista de repositorios
+        repos.extend(page)
+        print "Done with page %d" % i
+
+    # achar até onde esta repetido com a lista anterior
+    repos_correto = []
+    i = -1
+    for j in xrange(0, len(repos)):
+        if repos[j].name == ultimo_repo.name:
+            i = j
+            break
+    if i < 0:
+        raise Exception("Nao achou onde estava a repeticao")
+    else:
+        # pega a lista a partir do indice i
+        repos_correto = repos[i:]
+
+    return repos_correto
+
+
 def get_and_save_repos_to_csv_file():
     "fetch the repos and save them to a csv file"
-    repos = get_repos()
+
+    github_kwargs = {
+        'per_page': 100
+    }
+    # se tiver infos de username e login então pega elas das
+    # env vars `GH_U` e `GH_P` respectivamente
+    username, passwd = get_username_and_pass()
+    if username is not None and passwd is not None:
+        github_kwargs['login_or_token'] = username
+        github_kwargs['password'] = passwd
+
+    g = Github(**github_kwargs)  # defini que o num resultados p/ pagina é 100
+
+    repos = get_repos(g)
+    # pega mais alguns resultados, uns 900 talvez
+    repos.extend(get_repos(g, repos))
 
     save_repos_to_csv(repos, filename="repos_cmt_day_maior.csv")
 
@@ -227,3 +263,4 @@ def get_and_save_repos_to_csv_file():
 if __name__ == "__main__":
 
     get_and_save_repos_to_csv_file()
+# https://api.github.com/search/repositories?q=stars:%3C=2990&sort=stars&order=desc&per_page=100
