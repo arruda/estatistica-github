@@ -2,19 +2,19 @@
 counts:
 Owner.Type
 Organization         User 
-         820         1124 
+         862         1082 
 
 percentages:
 Owner.Type
 Organization         User 
-       42.18        57.82 
+       44.34        55.66 
 
 counts:
 Has.Wiki
 False  True 
-  396  1548 
+  407  1537 
 
 percentages:
 Has.Wiki
 False  True 
-20.37 79.63 
+20.94 79.06 
