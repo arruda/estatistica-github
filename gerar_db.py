@@ -99,6 +99,8 @@ def get_total_commits_from_weekly_total(commits_per_day_of_week):
 
 
 def escape_csharp_lang_name(repo):
+    if repo.language is None:
+        return "None"
     if "#" in repo.language:
         return "\"%s\"" % repo.language
     else:
