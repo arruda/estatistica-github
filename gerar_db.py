@@ -197,7 +197,6 @@ def get_repos(github):
     """
     search = github.search_repositories(query="stars:>=200", sort="stars", order="desc")
 
-    # import bpdb; bpdb.set_trace()
     repos = []
     # pega as 10 paginas, isso é: os 1000 primeiros
     for i in xrange(0, 10):
@@ -218,7 +217,6 @@ def get_mais_repos(github, repos_anterior):
     pega do github uma busca removendo uma boa parte dos
     resultados já recuperados pelo `get_repos`
     """
-    import bpdb; bpdb.set_trace()
     search = github.search_repositories(query="stars:<=3000", sort="stars", order="desc")
     ultimo_repo = repos_anterior[-1]
 
@@ -231,7 +229,6 @@ def get_mais_repos(github, repos_anterior):
         repos.extend(page)
         print "Done with page %d" % i
 
-    import bpdb; bpdb.set_trace()
     # achar até onde esta repetido com a lista anterior
     repos_correto = []
     i = -1
@@ -240,7 +237,6 @@ def get_mais_repos(github, repos_anterior):
             i = j
             break
 
-    import bpdb; bpdb.set_trace()
     if i < 0:
         raise Exception("Nao achou onde estava a repeticao")
     else:
