@@ -114,8 +114,12 @@ def write_repo_row(repos_csv, repo):
     row_data = [
         repo.name,  # Nome do repositorio
         repo.owner.type,  # User ou Organization
-        repo.created_at,  # Data em que foi criado
-        repo.updated_at,  # Ultima data em que foi atualizado
+        repo.created_at.year,  # Data em que foi criado (ano)
+        repo.created_at.month,  # Data em que foi criado (mes)
+        repo.created_at.day,  # Data em que foi criado (dia)
+        repo.updated_at.year,  # Ultima data em que foi atualizado (ano)
+        repo.updated_at.month,  # Ultima data em que foi atualizado (mes)
+        repo.updated_at.day,  # Ultima data em que foi atualizado (dia)
         repo.size,  # Tamanho do repositorio
         repo.stargazers_count,  # Numero de Estrelas
         repo.watchers_count,  # Numero de pessoas seguindo atualizações
@@ -151,8 +155,12 @@ def save_repos_to_csv(repos, filename="repos.csv"):
         row_data = [
             'Name',  # Nome do repositorio
             'Owner Type',  # User ou Organization
-            'Created at',  # Data em que foi criado
-            'Last Updated at',  # Ultima data em que foi atualizado
+            'Created at (Year)',  # Data em que foi criado (ano)
+            'Created at (Month)',  # Data em que foi criado (mes)
+            'Created at (Day)',  # Data em que foi criado (dia)
+            'Last Updated at (Year)',  # Ultima data em que foi atualizado
+            'Last Updated at (Month)',  # Ultima data em que foi atualizado
+            'Last Updated at (Day)',  # Ultima data em que foi atualizado
             'Size',  # Tamanho do repositorio
             'Stars',  # Numero de Estrelas
             'Watchers',  # Numero de pessoas seguindo atualizações
