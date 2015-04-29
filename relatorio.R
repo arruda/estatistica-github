@@ -40,6 +40,24 @@ do.call(rbind, lapply(gh, function(x) if(is.numeric(x)){
 }))
 sink()
 
+# Infos sobre Porcentagens das Qualitativas:
+
+sink("porcentagens_qualitativas.txt", append=FALSE, split=FALSE)
+local({
+  .Table <- with(gh, table(Owner.Type))
+  cat("\ncounts:\n")
+  print(.Table)
+  cat("\npercentages:\n")
+  print(round(100*.Table/sum(.Table), 2))
+})
+local({
+  .Table <- with(gh, table(Has.Wiki))
+  cat("\ncounts:\n")
+  print(.Table)
+  cat("\npercentages:\n")
+  print(round(100*.Table/sum(.Table), 2))
+})
+sink()
 
 # Correlacoes
 
@@ -51,4 +69,15 @@ dev.off()
 png("correlacoes/stars_vs_Watchers.png")
 scatterplot(Watchers~Stars, reg.line=lm, smooth=FALSE, spread=TRUE, id.method='mahal', id.n = 2,
    boxplots=FALSE, span=0.5, data=gh)
+dev.off()
+
+png("correlacoes/cmtsSab_vs_mtsDom.png")
+scatterplot(Num..Cmts..Sab~Num..Cmts..Dom, reg.line=lm, smooth=TRUE,
+  spread=TRUE, id.method='mahal', id.n = 2, boxplots=FALSE, span=0.5, data=gh)
+dev.off()
+
+png("correlacoes/todosCmtsSemana.png", width=1024, height=1024)
+scatterplotMatrix(~Num..Cmts..Dom+Num..Cmts..Qua+Num..Cmts..Qui+Num..Cmts..Sab+Num..Cmts..Seg+Num..Cmts..Sex+Num..Cmts..Ter,
+   reg.line=lm, smooth=TRUE, spread=FALSE, span=0.5, id.n=0, diagonal =
+  'density', data=gh)
 dev.off()

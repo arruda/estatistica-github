@@ -1,0 +1,20 @@
+
+counts:
+Owner.Type
+Organization         User 
+         820         1124 
+
+percentages:
+Owner.Type
+Organization         User 
+       42.18        57.82 
+
+counts:
+Has.Wiki
+False  True 
+  396  1548 
+
+percentages:
+Has.Wiki
+False  True 
+20.37 79.63 
