@@ -18,3 +18,45 @@ percentages:
 Has.Wiki
 False  True 
 20.94 79.06 
+
+counts:
+Language
+ ActionScript    ApacheConf      Assembly             C          "C#" 
+            4             1             1            50            17 
+          C++       Clojure  CoffeeScript           CSS        Elixir 
+           43            12            41            87             1 
+   Emacs Lisp        Erlang          "F#"            Go         Groff 
+            2             2             1            55             1 
+      Haskell          HTML          Java    JavaScript         Julia 
+            2            63            99           669             1 
+          Lua      Makefile         Nginx          None          NSIS 
+            1             1             1           107             1 
+  Objective-C Objective-C++   Objective-J         OCaml          Perl 
+          163             2             1             1             2 
+          PHP         PLSQL    PowerShell        Python           QML 
+           73             2             1           134             1 
+         Ruby          Rust         Scala         Shell         Swift 
+          213             1            15            29            12 
+          TeX    TypeScript          Vala          VimL 
+            1             5             1            24 
+
+percentages:
+Language
+ ActionScript    ApacheConf      Assembly             C          "C#" 
+         0.21          0.05          0.05          2.57          0.87 
+          C++       Clojure  CoffeeScript           CSS        Elixir 
+         2.21          0.62          2.11          4.48          0.05 
+   Emacs Lisp        Erlang          "F#"            Go         Groff 
+         0.10          0.10          0.05          2.83          0.05 
+      Haskell          HTML          Java    JavaScript         Julia 
+         0.10          3.24          5.09         34.41          0.05 
+          Lua      Makefile         Nginx          None          NSIS 
+         0.05          0.05          0.05          5.50          0.05 
+  Objective-C Objective-C++   Objective-J         OCaml          Perl 
+         8.38          0.10          0.05          0.05          0.10 
+          PHP         PLSQL    PowerShell        Python           QML 
+         3.76          0.10          0.05          6.89          0.05 
+         Ruby          Rust         Scala         Shell         Swift 
+        10.96          0.05          0.77          1.49          0.62 
+          TeX    TypeScript          Vala          VimL 
+         0.05          0.26          0.05          1.23 

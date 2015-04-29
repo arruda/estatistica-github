@@ -15,7 +15,7 @@ dfplot <- function(data.frame)
 
     # se for a variavel Language, então muda o tamanho da tela, caso contrario deixa normal
     if(names(df)[i] == "Language"){
-        png(filename, width=2050)
+        png(filename, width=3050)
     }
     else{
         png(filename)
@@ -52,6 +52,15 @@ local({
 })
 local({
   .Table <- with(gh, table(Has.Wiki))
+  cat("\ncounts:\n")
+  print(.Table)
+  cat("\npercentages:\n")
+  print(round(100*.Table/sum(.Table), 2))
+})
+
+
+local({
+  .Table <- with(gh, table(Language))
   cat("\ncounts:\n")
   print(.Table)
   cat("\npercentages:\n")
