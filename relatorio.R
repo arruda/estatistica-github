@@ -3,12 +3,24 @@ require(Rcmdr)
 initial.dir<-getwd()
 gh <- read.table("repos_cmt_day_maior.csv",
   header=TRUE, sep=";", na.strings="NA", dec=".", strip.white=TRUE)
-
+  
+attach(gh)
 gh_users <-  gh[which(Owner.Type=='User'),]
 gh_owners <-  gh[which(Owner.Type=='Organization'),]
+detach(gh)
 
 # 134 organizacoes
 # 167 users
+
+attach(gh_users)
+gh_users_sample <- gh_users[sample(1:nrow(gh_users), 167, replace=FALSE),]
+detach(gh_users)
+
+attach(gh_owners)
+gh_owners_sample <- gh_owners[sample(1:nrow(gh_owners), 134, replace=FALSE),]
+detach(gh_owners)
+
+gh_sample_final <- mergeRows(gh_users_sample, gh_owners_sample, common.only=FALSE)
 
 dfplot <- function(data.frame)
 {
