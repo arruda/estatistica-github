@@ -48,3 +48,8 @@ Caso queira mesmo, esses dados extras e mais elaborados estão listados aqui: ht
 
 # Rodar script R
 `R CMD BATCH relatorio.R`
+
+
+# Amostras
+De 100-300 amostras:
+`mysample <- gh[sample(1:nrow(gh), 50, replace=FALSE),]`
