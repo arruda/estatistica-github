@@ -7,6 +7,8 @@ gh <- read.table("repos_cmt_day_maior.csv",
 gh_users <-  gh[which(Owner.Type=='User'),]
 gh_owners <-  gh[which(Owner.Type=='Organization'),]
 
+# 134 organizacoes
+# 167 users
 
 dfplot <- function(data.frame)
 {
