@@ -4,6 +4,9 @@ initial.dir<-getwd()
 gh <- read.table("repos_cmt_day_maior.csv",
   header=TRUE, sep=";", na.strings="NA", dec=".", strip.white=TRUE)
 
+gh_users <-  gh[which(Owner.Type=='User'),]
+gh_owners <-  gh[which(Owner.Type=='Organization'),]
+
 
 dfplot <- function(data.frame)
 {
