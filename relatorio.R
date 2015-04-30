@@ -91,6 +91,12 @@ scatterplotMatrix(~Num..Cmts..Dom+Num..Cmts..Qua+Num..Cmts..Qui+Num..Cmts..Sab+N
   'density', data=gh)
 dev.off()
 
+png("correlacoes/cmtsDiasUteis.png", width=1024, height=1024)
+scatterplotMatrix(~Num..Cmts..Qua+Num..Cmts..Qui+Num..Cmts..Seg+Num..Cmts..Sex+Num..Cmts..Ter,
+   reg.line=lm, smooth=TRUE, spread=FALSE, span=0.5, id.n=0, diagonal =
+  'density', data=gh)
+dev.off()
+
 png("correlacoes/TotalCmts_vs_OwnerType.png")
 with(gh, Hist(Total.Commits, groups=Owner.Type, scale="percent",
   breaks="Sturges", col="darkgray"))
