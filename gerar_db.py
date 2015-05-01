@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import time
-import csv
 import os
+import time
+import datetime
+import csv
+
+from dateutil.relativedelta import relativedelta
 
 from github import Github, GithubException
 
@@ -107,6 +110,14 @@ def escape_csharp_lang_name(repo):
         return repo.language
 
 
+def get_repo_age(repo):
+    """
+    Calcula a idade do repositorio atual, em anos
+    """
+    today = datetime.datetime.now()
+    return relativedelta(today, repo.created_at)
+
+
 def write_repo_row(repos_csv, repo):
     """
     escreve os dados do repositorio atual,
@@ -128,7 +139,8 @@ def write_repo_row(repos_csv, repo):
         escape_csharp_lang_name(repo),  # Linguagem principal
         repo.has_wiki,  # Tem wiki?
         repo.forks,  # Quantas vertentes (forks) foram criadas
-        repo.open_issues_count  # Numero de Bugs/melhorias relatadas, em aberto
+        repo.open_issues_count,  # Numero de Bugs/melhorias relatadas, em aberto
+        get_repo_age(repo)  # idade do repositorio
     ]
 
     commits_per_day_of_week = get_and_wait_for_commits_per_day_of_week(repo, secs=0)
@@ -169,7 +181,8 @@ def save_repos_to_csv(repos, filename="repos.csv"):
             'Language',  # Linguagem principal
             'Has Wiki',  # Tem wiki?
             'Forks',  # Quantas vertentes (forks) foram criadas
-            'Open Issues'  # Numero de Bugs/melhorias relatadas, em aberto
+            'Open Issues',  # Numero de Bugs/melhorias relatadas, em aberto
+            'Age'  # idade do repositorio
         ]
         # coloca os dias da semana na ordem que devem ser escritos
         # na seguinte forma ex: "Num. Cmts. Dom"
