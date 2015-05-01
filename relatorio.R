@@ -21,6 +21,8 @@ detach(gh_owners)
 
 gh_sample_final <- mergeRows(gh_users_sample, gh_owners_sample, common.only=FALSE)
 
+finalData <- gh
+
 dfplot <- function(data.frame)
 {
   df <- data.frame
@@ -47,11 +49,11 @@ dfplot <- function(data.frame)
   }
 }
 
-dfplot(gh)
+dfplot(finalData)
 
 # shapiro test
 sink("shapiro_test/all.txt", append=FALSE, split=FALSE)
-do.call(rbind, lapply(gh, function(x) if(is.numeric(x)){
+do.call(rbind, lapply(finalData, function(x) if(is.numeric(x)){
     shapiro.test(x)[c("statistic", "p.value")]
 }))
 sink()
@@ -60,14 +62,14 @@ sink()
 
 sink("porcentagens_qualitativas.txt", append=FALSE, split=FALSE)
 local({
-  .Table <- with(gh, table(Owner.Type))
+  .Table <- with(finalData, table(Owner.Type))
   cat("\ncounts:\n")
   print(.Table)
   cat("\npercentages:\n")
   print(round(100*.Table/sum(.Table), 2))
 })
 local({
-  .Table <- with(gh, table(Has.Wiki))
+  .Table <- with(finalData, table(Has.Wiki))
   cat("\ncounts:\n")
   print(.Table)
   cat("\npercentages:\n")
@@ -76,7 +78,7 @@ local({
 
 
 local({
-  .Table <- with(gh, table(Language))
+  .Table <- with(finalData, table(Language))
   cat("\ncounts:\n")
   print(.Table)
   cat("\npercentages:\n")
@@ -88,33 +90,33 @@ sink()
 
 
 png("correlacoes/stars_vs_has_wiki.png")
-Boxplot(Stars~Has.Wiki, data=gh, id.method="y")
+Boxplot(Stars~Has.Wiki, data=finalData, id.method="y")
 dev.off()
 
 png("correlacoes/stars_vs_Watchers.png")
 scatterplot(Watchers~Stars, reg.line=lm, smooth=FALSE, spread=TRUE, id.method='mahal', id.n = 2,
-   boxplots=FALSE, span=0.5, data=gh)
+   boxplots=FALSE, span=0.5, data=finalData)
 dev.off()
 
 png("correlacoes/cmtsSab_vs_mtsDom.png")
 scatterplot(Num..Cmts..Sab~Num..Cmts..Dom, reg.line=lm, smooth=TRUE,
-  spread=TRUE, id.method='mahal', id.n = 2, boxplots=FALSE, span=0.5, data=gh)
+  spread=TRUE, id.method='mahal', id.n = 2, boxplots=FALSE, span=0.5, data=finalData)
 dev.off()
 
 png("correlacoes/todosCmtsSemana.png", width=1024, height=1024)
 scatterplotMatrix(~Num..Cmts..Dom+Num..Cmts..Qua+Num..Cmts..Qui+Num..Cmts..Sab+Num..Cmts..Seg+Num..Cmts..Sex+Num..Cmts..Ter,
    reg.line=lm, smooth=TRUE, spread=FALSE, span=0.5, id.n=0, diagonal =
-  'density', data=gh)
+  'density', data=finalData)
 dev.off()
 
 png("correlacoes/cmtsDiasUteis.png", width=1024, height=1024)
 scatterplotMatrix(~Num..Cmts..Qua+Num..Cmts..Qui+Num..Cmts..Seg+Num..Cmts..Sex+Num..Cmts..Ter,
    reg.line=lm, smooth=TRUE, spread=FALSE, span=0.5, id.n=0, diagonal =
-  'density', data=gh)
+  'density', data=finalData)
 dev.off()
 
 png("correlacoes/TotalCmts_vs_OwnerType.png")
-with(gh, Hist(Total.Commits, groups=Owner.Type, scale="percent",
+with(finalData, Hist(Total.Commits, groups=Owner.Type, scale="percent",
   breaks="Sturges", col="darkgray"))
 dev.off()
 
