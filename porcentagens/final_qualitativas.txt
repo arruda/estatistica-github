@@ -1,0 +1,79 @@
+
+counts:
+Owner.Type
+Organization         User 
+         134          167 
+
+percentages:
+Owner.Type
+Organization         User 
+       44.52        55.48 
+
+counts:
+Has.Wiki
+False  True 
+   64   237 
+
+percentages:
+Has.Wiki
+False  True 
+21.26 78.74 
+
+counts:
+Language
+ ActionScript    ApacheConf      Assembly             C          "C#" 
+            1             0             0             6             4 
+          C++       Clojure  CoffeeScript           CSS        Elixir 
+           11             2             7             9             0 
+   Emacs Lisp        Erlang          "F#"            Go         Groff 
+            0             0             0            11             0 
+      Haskell          HTML          Java    JavaScript         Julia 
+            0            10            20            99             0 
+          Lua      Makefile         Nginx          None          NSIS 
+            0             0             0            18             0 
+  Objective-C Objective-C++   Objective-J         OCaml          Perl 
+           22             0             0             1             0 
+          PHP         PLSQL    PowerShell        Python           QML 
+           10             1             1            24             0 
+         Ruby          Rust         Scala         Shell         Swift 
+           33             0             3             4             1 
+          TeX    TypeScript          Vala          VimL 
+            0             1             1             1 
+
+percentages:
+Language
+ ActionScript    ApacheConf      Assembly             C          "C#" 
+         0.33          0.00          0.00          1.99          1.33 
+          C++       Clojure  CoffeeScript           CSS        Elixir 
+         3.65          0.66          2.33          2.99          0.00 
+   Emacs Lisp        Erlang          "F#"            Go         Groff 
+         0.00          0.00          0.00          3.65          0.00 
+      Haskell          HTML          Java    JavaScript         Julia 
+         0.00          3.32          6.64         32.89          0.00 
+          Lua      Makefile         Nginx          None          NSIS 
+         0.00          0.00          0.00          5.98          0.00 
+  Objective-C Objective-C++   Objective-J         OCaml          Perl 
+         7.31          0.00          0.00          0.33          0.00 
+          PHP         PLSQL    PowerShell        Python           QML 
+         3.32          0.33          0.33          7.97          0.00 
+         Ruby          Rust         Scala         Shell         Swift 
+        10.96          0.00          1.00          1.33          0.33 
+          TeX    TypeScript          Vala          VimL 
+         0.00          0.33          0.33          0.33 
+[1] "Matriz de Correlação entre dias da semana"
+               Num..Cmts..Dom Num..Cmts..Qua Num..Cmts..Qui Num..Cmts..Sab
+Num..Cmts..Dom      1.0000000      0.7083431      0.7171979      0.9890032
+Num..Cmts..Qua      0.7083431      1.0000000      0.9974466      0.7497897
+Num..Cmts..Qui      0.7171979      0.9974466      1.0000000      0.7584250
+Num..Cmts..Sab      0.9890032      0.7497897      0.7584250      1.0000000
+Num..Cmts..Seg      0.7510504      0.9913104      0.9908129      0.7839149
+Num..Cmts..Sex      0.7503354      0.9947255      0.9952156      0.7909105
+Num..Cmts..Ter      0.7229381      0.9961280      0.9964125      0.7623126
+               Num..Cmts..Seg Num..Cmts..Sex Num..Cmts..Ter
+Num..Cmts..Dom      0.7510504      0.7503354      0.7229381
+Num..Cmts..Qua      0.9913104      0.9947255      0.9961280
+Num..Cmts..Qui      0.9908129      0.9952156      0.9964125
+Num..Cmts..Sab      0.7839149      0.7909105      0.7623126
+Num..Cmts..Seg      1.0000000      0.9910682      0.9932216
+Num..Cmts..Sex      0.9910682      1.0000000      0.9930442
+Num..Cmts..Ter      0.9932216      0.9930442      1.0000000

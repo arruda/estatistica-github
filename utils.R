@@ -112,5 +112,10 @@ porcentagens <- function(data.frame, prefix)
       cat("\npercentages:\n")
       print(round(100*.Table/sum(.Table), 2))
     })
+
+    print("Matriz de Correlação entre dias da semana")
+    print(cor(df[,c("Num..Cmts..Dom","Num..Cmts..Qua","Num..Cmts..Qui",
+      "Num..Cmts..Sab","Num..Cmts..Seg","Num..Cmts..Sex","Num..Cmts..Ter")],
+      use="complete"))
     sink()
 }

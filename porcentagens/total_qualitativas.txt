@@ -60,3 +60,20 @@ Language
         10.96          0.05          0.77          1.49          0.62 
           TeX    TypeScript          Vala          VimL 
          0.05          0.26          0.05          1.23 
+[1] "Matriz de Correlação entre dias da semana"
+               Num..Cmts..Dom Num..Cmts..Qua Num..Cmts..Qui Num..Cmts..Sab
+Num..Cmts..Dom      1.0000000      0.7634602      0.7797603      0.9816958
+Num..Cmts..Qua      0.7634602      1.0000000      0.9910224      0.7925467
+Num..Cmts..Qui      0.7797603      0.9910224      1.0000000      0.8021570
+Num..Cmts..Sab      0.9816958      0.7925467      0.8021570      1.0000000
+Num..Cmts..Seg      0.7975370      0.9838820      0.9919559      0.8122338
+Num..Cmts..Sex      0.7963543      0.9842660      0.9937292      0.8175452
+Num..Cmts..Ter      0.7729690      0.9802627      0.9908837      0.7854451
+               Num..Cmts..Seg Num..Cmts..Sex Num..Cmts..Ter
+Num..Cmts..Dom      0.7975370      0.7963543      0.7729690
+Num..Cmts..Qua      0.9838820      0.9842660      0.9802627
+Num..Cmts..Qui      0.9919559      0.9937292      0.9908837
+Num..Cmts..Sab      0.8122338      0.8175452      0.7854451
+Num..Cmts..Seg      1.0000000      0.9908332      0.9917824
+Num..Cmts..Sex      0.9908332      1.0000000      0.9905436
+Num..Cmts..Ter      0.9917824      0.9905436      1.0000000
