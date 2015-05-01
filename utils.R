@@ -80,3 +80,37 @@ dfplot <- function(data.frame, prefix)
     dev.off()
   }
 }
+
+
+
+porcentagens <- function(data.frame, prefix)
+{
+    df <- data.frame
+    filename <- paste("porcentagens/", prefix, '_', 'qualitativas.txt', sep='')
+
+    sink(filename, append=FALSE, split=FALSE)
+    local({
+      .Table <- with(df, table(Owner.Type))
+      cat("\ncounts:\n")
+      print(.Table)
+      cat("\npercentages:\n")
+      print(round(100*.Table/sum(.Table), 2))
+    })
+    local({
+      .Table <- with(df, table(Has.Wiki))
+      cat("\ncounts:\n")
+      print(.Table)
+      cat("\npercentages:\n")
+      print(round(100*.Table/sum(.Table), 2))
+    })
+
+
+    local({
+      .Table <- with(df, table(Language))
+      cat("\ncounts:\n")
+      print(.Table)
+      cat("\npercentages:\n")
+      print(round(100*.Table/sum(.Table), 2))
+    })
+    sink()
+}

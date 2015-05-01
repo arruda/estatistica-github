@@ -56,32 +56,10 @@ sink(filename, append=FALSE, split=FALSE)
 sink()
 
 # Infos sobre Porcentagens das Qualitativas:
-
-sink("porcentagens_qualitativas.txt", append=FALSE, split=FALSE)
-local({
-  .Table <- with(gh, table(Owner.Type))
-  cat("\ncounts:\n")
-  print(.Table)
-  cat("\npercentages:\n")
-  print(round(100*.Table/sum(.Table), 2))
-})
-local({
-  .Table <- with(gh, table(Has.Wiki))
-  cat("\ncounts:\n")
-  print(.Table)
-  cat("\npercentages:\n")
-  print(round(100*.Table/sum(.Table), 2))
-})
-
-
-local({
-  .Table <- with(gh, table(Language))
-  cat("\ncounts:\n")
-  print(.Table)
-  cat("\npercentages:\n")
-  print(round(100*.Table/sum(.Table), 2))
-})
-sink()
+porcentagens(gh, 'total')
+porcentagens(gh_users_sample, 'user')
+porcentagens(gh_org_sample, 'org')
+porcentagens(gh_sample_final, 'final')
 
 # Correlacoes
 correlacoes(gh, 'total')
