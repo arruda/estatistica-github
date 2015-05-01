@@ -84,37 +84,9 @@ local({
 sink()
 
 # Correlacoes
-
-
-png("correlacoes/stars_vs_has_wiki.png")
-Boxplot(Stars~Has.Wiki, data=gh, id.method="y")
-dev.off()
-
-# png("correlacoes/stars_vs_Watchers.png")
-# scatterplot(Watchers~Stars, reg.line=lm, smooth=FALSE, spread=TRUE, id.method='mahal', id.n = 2,
-#    boxplots=FALSE, span=0.5, data=gh)
-# dev.off()
-
-png("correlacoes/cmtsSab_vs_mtsDom.png")
-scatterplot(Num..Cmts..Sab~Num..Cmts..Dom, reg.line=lm, smooth=TRUE,
-  spread=TRUE, id.method='mahal', id.n = 2, boxplots=FALSE, span=0.5, data=gh)
-dev.off()
-
-png("correlacoes/todosCmtsSemana.png", width=1024, height=1024)
-scatterplotMatrix(~Num..Cmts..Dom+Num..Cmts..Qua+Num..Cmts..Qui+Num..Cmts..Sab+Num..Cmts..Seg+Num..Cmts..Sex+Num..Cmts..Ter,
-   reg.line=lm, smooth=TRUE, spread=FALSE, span=0.5, id.n=0, diagonal =
-  'density', data=gh)
-dev.off()
-
-png("correlacoes/cmtsDiasUteis.png", width=1024, height=1024)
-scatterplotMatrix(~Num..Cmts..Qua+Num..Cmts..Qui+Num..Cmts..Seg+Num..Cmts..Sex+Num..Cmts..Ter,
-   reg.line=lm, smooth=TRUE, spread=FALSE, span=0.5, id.n=0, diagonal =
-  'density', data=gh)
-dev.off()
-
-png("correlacoes/TotalCmts_vs_OwnerType.png")
-with(gh, Hist(Total.Commits, groups=Owner.Type, scale="percent",
-  breaks="Sturges", col="darkgray"))
-dev.off()
+correlacoes(gh, 'total')
+correlacoes(gh_users_sample, 'user')
+correlacoes(gh_org_sample, 'org')
+correlacoes(gh_sample_final, 'final')
 
 

@@ -1,0 +1,22 @@
+<simpleError in shapiro.test(x): all 'x' values are identical>
+                        statistic                      p.value     
+Created.at..Year.       0.9466193                      4.833734e-05
+Created.at..Month.      0.925588                       1.680927e-06
+Created.at..Day.        0.9374183                      1.035151e-05
+Last.Updated.at..Year.  "all 'x' values are identical" Expression  
+Last.Updated.at..Month. 0.1313804                      1.154474e-24
+Last.Updated.at..Day.   0.2780865                      7.702699e-23
+Size                    0.3358761                      4.841037e-22
+Stars                   0.6254045                      5.673872e-17
+Watchers                0.6254045                      5.673872e-17
+Forks                   0.6744746                      7.722398e-16
+Open.Issues             0.6372592                      1.040793e-16
+Num..Cmts..Dom          0.4711265                      6.11454e-20 
+Num..Cmts..Seg          0.5683318                      3.673845e-18
+Num..Cmts..Ter          0.5807056                      6.49372e-18 
+Num..Cmts..Qua          0.5636924                      2.976682e-18
+Num..Cmts..Qui          0.551738                       1.743996e-18
+Num..Cmts..Sex          0.5630563                      2.892403e-18
+Num..Cmts..Sab          0.5022237                      2.12089e-19 
+Total.Commits           0.5677922                      3.584719e-18
+Age                     0.9475036                      5.642878e-05

@@ -34,13 +34,13 @@ correlacoes <-function(data.frame, prefix){
       spread=TRUE, id.method='mahal', id.n = 2, boxplots=FALSE, span=0.5, data=df)
     dev.off()
 
-    png(paste(pre_filename, "todosCmtsSemana.png", sep=''))
+    png(paste(pre_filename, "todosCmtsSemana.png", sep=''), width=1024, height=1024)
     scatterplotMatrix(~Num..Cmts..Dom+Num..Cmts..Qua+Num..Cmts..Qui+Num..Cmts..Sab+Num..Cmts..Seg+Num..Cmts..Sex+Num..Cmts..Ter,
        reg.line=lm, smooth=TRUE, spread=FALSE, span=0.5, id.n=0, diagonal =
       'density', data=df)
     dev.off()
 
-    png(paste(pre_filename, "cmtsDiasUteis.png", sep=''))
+    png(paste(pre_filename, "cmtsDiasUteis.png", sep=''), width=1024, height=1024)
     scatterplotMatrix(~Num..Cmts..Qua+Num..Cmts..Qui+Num..Cmts..Seg+Num..Cmts..Sex+Num..Cmts..Ter,
        reg.line=lm, smooth=TRUE, spread=FALSE, span=0.5, id.n=0, diagonal =
       'density', data=df)
