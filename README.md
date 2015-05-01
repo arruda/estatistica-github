@@ -1,6 +1,6 @@
 ## Banco de Dados
 
-[repos_cmt_day_maior.csv](/repos_cmt_day_maior.csv)
+[repos_cmt_day_maior_age.csv](/repos_cmt_day_maior_age.csv)
 
 ## Variaveis:
  * name
@@ -21,7 +21,7 @@
 
 Rodar:
 
-`pip install PyGithub`
+`pip install -r requirements.txt`
 
 Em seguida rodar o arquivo gerar_db.py: `python gerar_db.py`
 
