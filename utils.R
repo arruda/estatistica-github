@@ -1,0 +1,82 @@
+
+
+allShapiro <- function(data.frame)
+{
+    df <- data.frame
+    # filename <- paste("shapiro_test/", prefix, '_', 'all.txt', sep='')
+    # sink(filename, append=FALSE, split=FALSE)
+        do.call(rbind, lapply(df, function(x) if(is.numeric(x)){
+            tryCatch({
+                shapiro.test(x)[c("statistic", "p.value")]
+                },
+                error = function(err){
+                    print(err)
+
+            })
+        }))
+    # sink()
+
+}
+
+
+correlacoes <-function(data.frame, prefix){
+    df <- data.frame
+    pre_filename <- paste("correlacoes/", prefix, '_', sep='')
+
+
+
+    png(paste(pre_filename, "stars_vs_has_wiki.png", sep=''))
+    Boxplot(Stars~Has.Wiki, data=df, id.method="y")
+    dev.off()
+
+    png(paste(pre_filename, "cmtsSab_vs_mtsDom.png", sep=''))
+    scatterplot(Num..Cmts..Sab~Num..Cmts..Dom, reg.line=lm, smooth=TRUE,
+      spread=TRUE, id.method='mahal', id.n = 2, boxplots=FALSE, span=0.5, data=df)
+    dev.off()
+
+    png(paste(pre_filename, "todosCmtsSemana.png", sep=''))
+    scatterplotMatrix(~Num..Cmts..Dom+Num..Cmts..Qua+Num..Cmts..Qui+Num..Cmts..Sab+Num..Cmts..Seg+Num..Cmts..Sex+Num..Cmts..Ter,
+       reg.line=lm, smooth=TRUE, spread=FALSE, span=0.5, id.n=0, diagonal =
+      'density', data=df)
+    dev.off()
+
+    png(paste(pre_filename, "cmtsDiasUteis.png", sep=''))
+    scatterplotMatrix(~Num..Cmts..Qua+Num..Cmts..Qui+Num..Cmts..Seg+Num..Cmts..Sex+Num..Cmts..Ter,
+       reg.line=lm, smooth=TRUE, spread=FALSE, span=0.5, id.n=0, diagonal =
+      'density', data=df)
+    dev.off()
+
+
+    png(paste(pre_filename, "TotalCmts_vs_OwnerType.png", sep=''))
+    with(df, Hist(Total.Commits, groups=Owner.Type, scale="percent",
+      breaks="Sturges", col="darkgray"))
+    dev.off()
+
+}
+
+
+dfplot <- function(data.frame, prefix)
+{
+  df <- data.frame
+  ln <- length(names(data.frame))
+  for(i in 1:ln){
+    mname <- substitute(df[,i])
+    filename <- paste("histograms/", prefix, '_', names(df)[i], '.png', sep='')
+
+    # se for a variavel Language, então muda o tamanho da tela, caso contrario deixa normal
+    if(names(df)[i] == "Language"){
+        png(filename, width=3050)
+    }
+    else{
+        png(filename)
+    }
+
+    if(is.factor(df[,i])){
+        plot(df[,i],main=names(df)[i])
+    }
+    else{
+        Hist(df[,i],main=names(df)[i], scale="frequency", breaks="Sturges", col="darkgray", xlab=names(df)[i])
+    }
+    dev.off()
+  }
+}
