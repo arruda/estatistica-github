@@ -1,6 +1,5 @@
-# store the current directory
+
 require(Rcmdr)
-initial.dir<-getwd()
 gh <- read.table("repos_cmt_day_maior_age.csv",
   header=TRUE, sep=";", na.strings="NA", dec=".", strip.white=TRUE)
 
