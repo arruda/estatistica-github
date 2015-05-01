@@ -110,12 +110,12 @@ def escape_csharp_lang_name(repo):
         return repo.language
 
 
-def get_repo_age(repo):
+def get_repo_age(repo_create_date):
     """
     Calcula a idade do repositorio atual, em anos
     """
     today = datetime.datetime.now()
-    return relativedelta(today, repo.created_at)
+    return relativedelta(today, repo_create_date).years
 
 
 def write_repo_row(repos_csv, repo):
@@ -140,7 +140,7 @@ def write_repo_row(repos_csv, repo):
         repo.has_wiki,  # Tem wiki?
         repo.forks,  # Quantas vertentes (forks) foram criadas
         repo.open_issues_count,  # Numero de Bugs/melhorias relatadas, em aberto
-        get_repo_age(repo)  # idade do repositorio
+        get_repo_age(repo.created_at)  # idade do repositorio
     ]
 
     commits_per_day_of_week = get_and_wait_for_commits_per_day_of_week(repo, secs=0)
