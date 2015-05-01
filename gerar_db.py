@@ -286,4 +286,3 @@ def get_and_save_repos_to_csv_file():
 if __name__ == "__main__":
 
     get_and_save_repos_to_csv_file()
-# https://api.github.com/search/repositories?q=stars:%3C=2990&sort=stars&order=desc&per_page=100
