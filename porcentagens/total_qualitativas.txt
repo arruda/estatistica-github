@@ -2,78 +2,78 @@
 counts:
 Owner.Type
 Organization         User 
-         862         1082 
+         838         1005 
 
 percentages:
 Owner.Type
 Organization         User 
-       44.34        55.66 
+       45.47        54.53 
 
 counts:
 Has.Wiki
 False  True 
-  407  1537 
+  394  1449 
 
 percentages:
 Has.Wiki
 False  True 
-20.94 79.06 
+21.38 78.62 
 
 counts:
 Language
  ActionScript    ApacheConf      Assembly             C          "C#" 
-            4             1             1            50            17 
+            3             1             1            50            16 
           C++       Clojure  CoffeeScript           CSS        Elixir 
-           43            12            41            87             1 
+           42            10            38            84             1 
    Emacs Lisp        Erlang          "F#"            Go         Groff 
             2             2             1            55             1 
       Haskell          HTML          Java    JavaScript         Julia 
-            2            63            99           669             1 
+            2            63            97           633             1 
           Lua      Makefile         Nginx          None          NSIS 
-            1             1             1           107             1 
+            1             1             1           104             1 
   Objective-C Objective-C++   Objective-J         OCaml          Perl 
-          163             2             1             1             2 
+          153             2             1             1             2 
           PHP         PLSQL    PowerShell        Python           QML 
-           73             2             1           134             1 
+           67             2             1           128             1 
          Ruby          Rust         Scala         Shell         Swift 
-          213             1            15            29            12 
+          190             1            14            27            12 
           TeX    TypeScript          Vala          VimL 
-            1             5             1            24 
+            1             5             1            23 
 
 percentages:
 Language
  ActionScript    ApacheConf      Assembly             C          "C#" 
-         0.21          0.05          0.05          2.57          0.87 
+         0.16          0.05          0.05          2.71          0.87 
           C++       Clojure  CoffeeScript           CSS        Elixir 
-         2.21          0.62          2.11          4.48          0.05 
+         2.28          0.54          2.06          4.56          0.05 
    Emacs Lisp        Erlang          "F#"            Go         Groff 
-         0.10          0.10          0.05          2.83          0.05 
+         0.11          0.11          0.05          2.98          0.05 
       Haskell          HTML          Java    JavaScript         Julia 
-         0.10          3.24          5.09         34.41          0.05 
+         0.11          3.42          5.26         34.35          0.05 
           Lua      Makefile         Nginx          None          NSIS 
-         0.05          0.05          0.05          5.50          0.05 
+         0.05          0.05          0.05          5.64          0.05 
   Objective-C Objective-C++   Objective-J         OCaml          Perl 
-         8.38          0.10          0.05          0.05          0.10 
+         8.30          0.11          0.05          0.05          0.11 
           PHP         PLSQL    PowerShell        Python           QML 
-         3.76          0.10          0.05          6.89          0.05 
+         3.64          0.11          0.05          6.95          0.05 
          Ruby          Rust         Scala         Shell         Swift 
-        10.96          0.05          0.77          1.49          0.62 
+        10.31          0.05          0.76          1.47          0.65 
           TeX    TypeScript          Vala          VimL 
-         0.05          0.26          0.05          1.23 
+         0.05          0.27          0.05          1.25 
 [1] "Matriz de Correlação entre dias da semana"
                Num..Cmts..Dom Num..Cmts..Qua Num..Cmts..Qui Num..Cmts..Sab
-Num..Cmts..Dom      1.0000000      0.7634602      0.7797603      0.9816958
-Num..Cmts..Qua      0.7634602      1.0000000      0.9910224      0.7925467
-Num..Cmts..Qui      0.7797603      0.9910224      1.0000000      0.8021570
-Num..Cmts..Sab      0.9816958      0.7925467      0.8021570      1.0000000
-Num..Cmts..Seg      0.7975370      0.9838820      0.9919559      0.8122338
-Num..Cmts..Sex      0.7963543      0.9842660      0.9937292      0.8175452
-Num..Cmts..Ter      0.7729690      0.9802627      0.9908837      0.7854451
+Num..Cmts..Dom      1.0000000      0.7609127      0.7774553      0.9814794
+Num..Cmts..Qua      0.7609127      1.0000000      0.9909539      0.7904662
+Num..Cmts..Qui      0.7774553      0.9909539      1.0000000      0.8002759
+Num..Cmts..Sab      0.9814794      0.7904662      0.8002759      1.0000000
+Num..Cmts..Seg      0.7955426      0.9837513      0.9918765      0.8105627
+Num..Cmts..Sex      0.7939936      0.9841419      0.9937085      0.8155841
+Num..Cmts..Ter      0.7700988      0.9800930      0.9908228      0.7828633
                Num..Cmts..Seg Num..Cmts..Sex Num..Cmts..Ter
-Num..Cmts..Dom      0.7975370      0.7963543      0.7729690
-Num..Cmts..Qua      0.9838820      0.9842660      0.9802627
-Num..Cmts..Qui      0.9919559      0.9937292      0.9908837
-Num..Cmts..Sab      0.8122338      0.8175452      0.7854451
-Num..Cmts..Seg      1.0000000      0.9908332      0.9917824
-Num..Cmts..Sex      0.9908332      1.0000000      0.9905436
-Num..Cmts..Ter      0.9917824      0.9905436      1.0000000
+Num..Cmts..Dom      0.7955426      0.7939936      0.7700988
+Num..Cmts..Qua      0.9837513      0.9841419      0.9800930
+Num..Cmts..Qui      0.9918765      0.9937085      0.9908228
+Num..Cmts..Sab      0.8105627      0.8155841      0.7828633
+Num..Cmts..Seg      1.0000000      0.9908058      0.9917477
+Num..Cmts..Sex      0.9908058      1.0000000      0.9904784
+Num..Cmts..Ter      0.9917477      0.9904784      1.0000000

@@ -1,23 +1,22 @@
 <simpleError in shapiro.test(x): all 'x' values are identical>
-<simpleError in shapiro.test(x): all 'x' values are identical>
                         statistic                      p.value     
-Created.at..Year.       0.9543911                      0.0001969127
-Created.at..Month.      0.9309816                      3.77076e-06 
-Created.at..Day.        0.929969                       3.231819e-06
+Created.at..Year.       0.9535467                      1.310153e-15
+Created.at..Month.      0.9430112                      2.045074e-17
+Created.at..Day.        0.9525185                      8.49202e-16 
 Last.Updated.at..Year.  "all 'x' values are identical" Expression  
-Last.Updated.at..Month. "all 'x' values are identical" Expression  
-Last.Updated.at..Day.   0.2067852                      9.272675e-24
-Size                    0.1556344                      2.220689e-24
-Stars                   0.6519706                      2.255635e-16
-Watchers                0.6519706                      2.255635e-16
-Forks                   0.7927405                      1.751693e-12
-Open.Issues             0.4830836                      9.798112e-20
-Num..Cmts..Dom          0.5089173                      2.793182e-19
-Num..Cmts..Seg          0.6164311                      3.618116e-17
-Num..Cmts..Ter          0.6148547                      3.345836e-17
-Num..Cmts..Qua          0.611476                       2.831554e-17
-Num..Cmts..Qui          0.616675                       3.662263e-17
-Num..Cmts..Sex          0.6148395                      3.343323e-17
-Num..Cmts..Sab          0.5097652                      2.892908e-19
-Total.Commits           0.6105639                      2.707318e-17
-Age                     0.9471979                      5.348097e-05
+Last.Updated.at..Month. 0.1013997                      2.044667e-52
+Last.Updated.at..Day.   0.3174642                      4.913318e-48
+Size                    0.1439004                      1.249494e-51
+Stars                   0.5408488                      4.553601e-42
+Watchers                0.5408488                      4.553601e-42
+Forks                   0.4263207                      2.275259e-45
+Open.Issues             0.5222681                      1.201533e-42
+Num..Cmts..Dom          0.5289864                      1.935458e-42
+Num..Cmts..Seg          0.572645                       4.950539e-41
+Num..Cmts..Ter          0.5712342                      4.439729e-41
+Num..Cmts..Qua          0.5610615                      2.041886e-41
+Num..Cmts..Qui          0.5695081                      3.887416e-41
+Num..Cmts..Sex          0.5749626                      5.924188e-41
+Num..Cmts..Sab          0.5151063                      7.271778e-43
+Total.Commits           0.5737157                      5.378158e-41
+Age                     0.9468671                      8.751676e-17
