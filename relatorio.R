@@ -29,7 +29,7 @@ sink()
 # user
 filename <- paste("shapiro_test/", 'user', '_', 'all.txt', sep='')
 sink(filename, append=FALSE, split=FALSE)
-    allShapiro(gh_users)
+#     allShapiro(gh_users)
 sink()
 
 # Organization
@@ -49,3 +49,23 @@ correlacoes(gh_users, 'user')
 correlacoes(gh_org, 'org')
 
 
+
+
+# Analise fatorial
+
+require(FactoMineR)
+gh.PCA<-gh[, c("Num..Cmts..Dom", "Num..Cmts..Seg", "Num..Cmts..Ter",
+  "Num..Cmts..Qua", "Num..Cmts..Qui", "Num..Cmts..Sex", "Num..Cmts..Sab")]
+res<-PCA(gh.PCA , scale.unit=TRUE, ncp=5, graph = FALSE)
+
+png(paste('total', "analies_fat_cmts_ind.png", sep=''))
+plot.PCA(res, axes=c(1, 2), choix="ind", habillage="none", col.ind="black",
+  col.ind.sup="blue", col.quali="magenta", label=c("ind", "ind.sup", "quali"),
+  new.plot=TRUE)
+dev.off()
+
+png(paste('total', "analise_fat_cmts_var.png", sep=''))
+plot.PCA(res, axes=c(1, 2), choix="var", new.plot=TRUE, col.var="black",
+  col.quanti.sup="blue", label=c("var", "quanti.sup"), lim.cos2.var=0)
+dev.off()
+summary(res, nb.dec = 3, nbelements=10, nbind = 10, ncp = 3, file="")
