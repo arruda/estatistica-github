@@ -8,6 +8,7 @@ gh <- read.table("repos_cmt_day_maior_age.csv",
 #remove dupls!
 gh <- gh[!duplicated(gh$Name),]
 
+# write.csv2(gh, file = "limpo.csv", row.names=FALSE, fileEncoding = "UTF-8")
 attach(gh)
 gh_users <-  gh[which(Owner.Type=='User'),]
 gh_org <-  gh[which(Owner.Type=='Organization'),]
