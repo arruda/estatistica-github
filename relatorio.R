@@ -120,5 +120,19 @@ summary(res, nb.dec = 3, nbelements=10, nbind = 10, ncp = 3, file="")
 
 
 
+#outra opt de quali x quali
+
+gh.MCA<-gh[, c("Created.at..Year.", "Language")]
+res<-MCA(gh.MCA, ncp=5, graph = FALSE)
+plot.MCA(res, axes=c(1, 2), new.plot=TRUE, col.ind="black", col.ind.sup="blue", 
+  col.var="darkred", col.quali.sup="darkgreen", label=c("ind.sup", "quali.sup", 
+  "var"), invisible=c("ind"), title="", xlim=c(-3, 3), ylim=c(-2, 2))
+plot.MCA(res, axes=c(1, 2), new.plot=TRUE, choix="var", col.var="darkred", 
+  col.quali.sup="darkgreen", label=c("quali.sup", "var"), title="")
+plot.MCA(res, axes=c(1, 2), new.plot=TRUE, choix="quanti.sup", 
+  col.quanti.sup="blue", label=c("quanti.sup"), title="")
+summary(res, nb.dec = 3, nbelements=10, nbind = 10, ncp = 3, file="")
+remove(gh.MCA)
+
 
 
