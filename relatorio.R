@@ -7,6 +7,15 @@ gh <- read.table("repos_cmt_day_maior_age.csv",
 
 #remove dupls!
 gh <- gh[!duplicated(gh$Name),]
+# vars qualitativas
+gh <- within(gh, {
+  Created.at..Day. <- as.factor(Created.at..Day.)
+  Created.at..Month. <- as.factor(Created.at..Month.)
+  Created.at..Year. <- as.factor(Created.at..Year.)
+  Last.Updated.at..Day. <- as.factor(Last.Updated.at..Day.)
+  Last.Updated.at..Month. <- as.factor(Last.Updated.at..Month.)
+  Last.Updated.at..Year. <- as.factor(Last.Updated.at..Year.)
+})
 
 # write.csv2(gh, file = "limpo.csv", row.names=FALSE, fileEncoding = "UTF-8")
 attach(gh)
@@ -74,3 +83,32 @@ plot.PCA(res, axes=c(1, 2), choix="var", new.plot=TRUE, col.var="black",
   col.quanti.sup="blue", label=c("var", "quanti.sup"), lim.cos2.var=0)
 dev.off()
 summary(res, nb.dec = 3, nbelements=10, nbind = 10, ncp = 3, file="")
+
+
+
+
+
+
+
+#lixo
+gh.PCA<-gh[, c("Num..Cmts..Dom", "Num..Cmts..Seg", "Num..Cmts..Ter", 
+  "Num..Cmts..Qua", "Num..Cmts..Qui", "Num..Cmts..Sex", "Num..Cmts..Sab", 
+  "Owner.Type")]
+res<-PCA(gh.PCA , scale.unit=TRUE, ncp=5, quali.sup=c(8: 8), graph = FALSE)
+res.hcpc<-HCPC(res ,nb.clust=-1,consol=TRUE,min=15,max=15,graph=TRUE)
+plot.PCA(res, axes=c(1, 2), choix="ind", habillage="none", col.ind="black", 
+  col.ind.sup="blue", col.quali="magenta", label=c("ind.sup", "quali"),new.plot=TRUE, 
+  title="")
+plot.PCA(res, axes=c(1, 2), choix="var", new.plot=TRUE, col.var="black", 
+  col.quanti.sup="blue", label=c("var", "quanti.sup"), lim.cos2.var=0, title="")
+summary(res, nb.dec = 3, nbelements=10, nbind = 10, ncp = 3, file="")
+remove(gh.PCA)
+
+
+
+
+
+
+
+
+
