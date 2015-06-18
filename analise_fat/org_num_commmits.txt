@@ -1,0 +1,28 @@
+
+Call:
+factanal(x = ~Num..Cmts..Dom + Num..Cmts..Qua + Num..Cmts..Qui +     Num..Cmts..Sab + Num..Cmts..Seg + Num..Cmts..Sex + Num..Cmts..Ter,     factors = 2, data = df, scores = "regression", rotation = "varimax")
+
+Uniquenesses:
+Num..Cmts..Dom Num..Cmts..Qua Num..Cmts..Qui Num..Cmts..Sab Num..Cmts..Seg 
+         0.005          0.020          0.005          0.028          0.009 
+Num..Cmts..Sex Num..Cmts..Ter 
+         0.008          0.013 
+
+Loadings:
+               Factor1 Factor2
+Num..Cmts..Dom 0.428   0.901  
+Num..Cmts..Qua 0.912   0.385  
+Num..Cmts..Qui 0.911   0.407  
+Num..Cmts..Sab 0.468   0.868  
+Num..Cmts..Seg 0.895   0.435  
+Num..Cmts..Sex 0.896   0.435  
+Num..Cmts..Ter 0.912   0.394  
+
+               Factor1 Factor2
+SS loadings      4.499   2.413
+Proportion Var   0.643   0.345
+Cumulative Var   0.643   0.987
+
+Test of the hypothesis that 2 factors are sufficient.
+The chi square statistic is 667.32 on 8 degrees of freedom.
+The p-value is 7.76e-139 

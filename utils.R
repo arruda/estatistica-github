@@ -19,6 +19,8 @@ allShapiro <- function(data.frame)
 }
 
 
+
+
 correlacoes <-function(data.frame, prefix){
     df <- data.frame
     pre_filename <- paste("correlacoes/", prefix, '_', sep='')
@@ -118,4 +120,23 @@ porcentagens <- function(data.frame, prefix)
       "Num..Cmts..Sab","Num..Cmts..Seg","Num..Cmts..Sex","Num..Cmts..Ter")],
       use="complete"))
     sink()
+}
+
+analise_fat <-function(data.frame, prefix){
+    df <- data.frame
+    pre_filename <- paste("analise_fat/", prefix, '_', 'num_commmits.txt', sep='')
+    sink(pre_filename, append=FALSE, split=FALSE)
+
+    local({
+      .FA <-
+      factanal(~Num..Cmts..Dom+Num..Cmts..Qua+Num..Cmts..Qui+Num..Cmts..Sab+Num..Cmts..Seg+Num..Cmts..Sex+Num..Cmts..Ter,
+       factors=2, rotation="varimax", scores="regression", data=df)
+      print(.FA)
+      df <<- within(df, {
+        Num.Comts.Finais.Semana <- .FA$scores[,2]
+        Num.Comts.Dias.Uteis <- .FA$scores[,1]
+      })
+    })
+    sink()
+    return(df)
 }

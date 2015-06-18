@@ -54,6 +54,10 @@ correlacoes(gh_org, 'org')
 
 # Analise fatorial
 
+gh <- analise_fat(gh, 'total')
+gh_users <- analise_fat(gh_users, 'user')
+gh_org <- analise_fat(gh_org, 'org')
+
 require(FactoMineR)
 gh.PCA<-gh[, c("Num..Cmts..Dom", "Num..Cmts..Seg", "Num..Cmts..Ter",
   "Num..Cmts..Qua", "Num..Cmts..Qui", "Num..Cmts..Sex", "Num..Cmts..Sab")]

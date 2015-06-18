@@ -1,3 +1,5 @@
+
+>     allShapiro(gh_org)
 <simpleError in shapiro.test(x): all 'x' values are identical>
                         statistic                      p.value     
 Created.at..Year.       0.9535467                      1.310153e-15
@@ -20,3 +22,5 @@ Num..Cmts..Sex          0.5749626                      5.924188e-41
 Num..Cmts..Sab          0.5151063                      7.271778e-43
 Total.Commits           0.5737157                      5.378158e-41
 Age                     0.9468671                      8.751676e-17
+
+> sink()

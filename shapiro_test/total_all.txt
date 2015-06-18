@@ -1,3 +1,5 @@
+
+>     allShapiro(gh)
                         statistic  p.value     
 Created.at..Year.       0.9513489  2.878997e-24
 Created.at..Month.      0.9410702  1.805023e-26
@@ -19,3 +21,5 @@ Num..Cmts..Sex          0.4381348  4.873476e-60
 Num..Cmts..Sab          0.4222538  1.52919e-60 
 Total.Commits           0.4451797  8.222452e-60
 Age                     0.9465493  2.458655e-25
+
+> sink()
