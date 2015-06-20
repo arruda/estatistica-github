@@ -1,26 +1,15 @@
-
->     allShapiro(gh_org)
-<simpleError in shapiro.test(x): all 'x' values are identical>
-                        statistic                      p.value     
-Created.at..Year.       0.9535467                      1.310153e-15
-Created.at..Month.      0.9430112                      2.045074e-17
-Created.at..Day.        0.9525185                      8.49202e-16 
-Last.Updated.at..Year.  "all 'x' values are identical" Expression  
-Last.Updated.at..Month. 0.1013997                      2.044667e-52
-Last.Updated.at..Day.   0.3174642                      4.913318e-48
-Size                    0.1439004                      1.249494e-51
-Stars                   0.5408488                      4.553601e-42
-Watchers                0.5408488                      4.553601e-42
-Forks                   0.4263207                      2.275259e-45
-Open.Issues             0.5222681                      1.201533e-42
-Num..Cmts..Dom          0.5289864                      1.935458e-42
-Num..Cmts..Seg          0.572645                       4.950539e-41
-Num..Cmts..Ter          0.5712342                      4.439729e-41
-Num..Cmts..Qua          0.5610615                      2.041886e-41
-Num..Cmts..Qui          0.5695081                      3.887416e-41
-Num..Cmts..Sex          0.5749626                      5.924188e-41
-Num..Cmts..Sab          0.5151063                      7.271778e-43
-Total.Commits           0.5737157                      5.378158e-41
-Age                     0.9468671                      8.751676e-17
-
-> sink()
+               statistic p.value     
+Size           0.1439004 1.249494e-51
+Stars          0.5408488 4.553601e-42
+Watchers       0.5408488 4.553601e-42
+Forks          0.4263207 2.275259e-45
+Open.Issues    0.5222681 1.201533e-42
+Num..Cmts..Dom 0.5289864 1.935458e-42
+Num..Cmts..Seg 0.572645  4.950539e-41
+Num..Cmts..Ter 0.5712342 4.439729e-41
+Num..Cmts..Qua 0.5610615 2.041886e-41
+Num..Cmts..Qui 0.5695081 3.887416e-41
+Num..Cmts..Sex 0.5749626 5.924188e-41
+Num..Cmts..Sab 0.5151063 7.271778e-43
+Total.Commits  0.5737157 5.378158e-41
+Age            0.9468671 8.751676e-17

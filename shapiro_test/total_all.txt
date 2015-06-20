@@ -1,25 +1,15 @@
-
->     allShapiro(gh)
-                        statistic  p.value     
-Created.at..Year.       0.9513489  2.878997e-24
-Created.at..Month.      0.9410702  1.805023e-26
-Created.at..Day.        0.9518397  3.740426e-24
-Last.Updated.at..Year.  0.02601063 2.251816e-70
-Last.Updated.at..Month. 0.1722476  3.137753e-67
-Last.Updated.at..Day.   0.4281169  2.338441e-60
-Size                    0.1109658  1.334735e-68
-Stars                   0.5924987  2.152607e-54
-Watchers                0.5924987  2.152607e-54
-Forks                   0.284992   1.833763e-64
-Open.Issues             0.4090312  5.945727e-61
-Num..Cmts..Dom          0.4380682  4.849562e-60
-Num..Cmts..Seg          0.4384998  5.006677e-60
-Num..Cmts..Ter          0.4352295  3.93423e-60 
-Num..Cmts..Qua          0.4263426  2.055576e-60
-Num..Cmts..Qui          0.43328    3.409515e-60
-Num..Cmts..Sex          0.4381348  4.873476e-60
-Num..Cmts..Sab          0.4222538  1.52919e-60 
-Total.Commits           0.4451797  8.222452e-60
-Age                     0.9465493  2.458655e-25
-
-> sink()
+               statistic p.value     
+Size           0.1109658 1.334735e-68
+Stars          0.5924987 2.152607e-54
+Watchers       0.5924987 2.152607e-54
+Forks          0.284992  1.833763e-64
+Open.Issues    0.4090312 5.945727e-61
+Num..Cmts..Dom 0.4380682 4.849562e-60
+Num..Cmts..Seg 0.4384998 5.006677e-60
+Num..Cmts..Ter 0.4352295 3.93423e-60 
+Num..Cmts..Qua 0.4263426 2.055576e-60
+Num..Cmts..Qui 0.43328   3.409515e-60
+Num..Cmts..Sex 0.4381348 4.873476e-60
+Num..Cmts..Sab 0.4222538 1.52919e-60 
+Total.Commits  0.4451797 8.222452e-60
+Age            0.9465493 2.458655e-25

@@ -1,3 +1,0 @@
-
-> #     allShapiro(gh_users)
-> sink()
