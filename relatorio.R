@@ -98,7 +98,7 @@ plot.PCA(res, axes=c(1, 2), choix="ind", habillage="none", col.ind="black", col.
 plot.PCA(res, axes=c(1, 2), choix="var", new.plot=TRUE, col.var="black", col.quanti.sup="blue",
   label=c("var", "quanti.sup"), lim.cos2.var=0)
 
-gh <- within(gh, {clusters_cmts <- dd$clust})
+gh <- within(gh, {clusters_cmts <- res.hcpc$data.clust$clust})
 
 
 
