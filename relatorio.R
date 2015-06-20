@@ -33,9 +33,6 @@ png(paste('correlacoes/', "total_cmts_created_year.png", sep=''))
 Boxplot(Total.Commits~Created.at..Year., data=gh, id.method="y")
 dev.off()
 
-png(paste('correlacoes/', "total_stars_clusters.png", sep=''))
-Boxplot(Stars~Clusters.Cmts, data=gh, id.method="y")
-dev.off()
 ### shapiro test
 
 ## total
@@ -104,6 +101,9 @@ plot.PCA(res, axes=c(1, 2), choix="var", new.plot=TRUE, col.var="black", col.qua
 
 gh <- within(gh, {Clusters.Cmts <-  as.factor(res.hcpc$data.clust$clust)})
 
+png(paste('correlacoes/', "total_stars_clusters.png", sep=''))
+Boxplot(Stars~Clusters.Cmts, data=gh, id.method="y")
+dev.off()
 
 
 #lixo
