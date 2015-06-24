@@ -43,8 +43,21 @@ with(gh_lang_simp, pie(table(Language), labels=levels(Language), xlab="",
   ylab="", main="Language", col=rainbow_hcl(length(levels(Language)))))
 dev.off()
 
-
+png(paste('histograms/', "total_has_wiki_pie.png", sep=''))
+with(gh, pie(table(Has.Wiki), labels=levels(Has.Wiki), xlab="", ylab="",
+  main="Has.Wiki", col=rainbow_hcl(length(levels(Has.Wiki)))))
+dev.off()
 ### shapiro test
+
+png(paste('shapiro_test/', "total_qqnorm_star.png", sep=''))
+qqnorm(gh$Stars)
+dev.off()
+png(paste('shapiro_test/', "total_qqnorm_age.png", sep=''))
+qqnorm(gh$Age)
+dev.off()
+png(paste('shapiro_test/', "total_qqnorm_cmts.png", sep=''))
+qqnorm(gh$Total.Commits)
+dev.off()
 
 ## total
 filename <- paste("shapiro_test/", 'total', '_', 'all.txt', sep='')
@@ -75,6 +88,13 @@ correlacoes(gh_users, 'user')
 correlacoes(gh_org, 'org')
 
 
+gh.MCA<-gh[, c("Created.at..Year.", "Language")]
+res<-MCA(gh.MCA, ncp=5, graph = FALSE)
+plot.MCA(res, axes=c(1, 2), new.plot=TRUE, col.ind="black",
+  col.ind.sup="blue", col.var="darkred", col.quali.sup="darkgreen",
+  label=c("ind.sup", "quali.sup", "var"), invisible=c("ind"), xlim=c(-2, 2),
+  ylim=c(-2.5, 2.5))
+remove(gh.MCA)
 
 
 # Analise fatorial
