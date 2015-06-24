@@ -1,9 +1,10 @@
 
 library(FactoMineR)
+library(colorspace, pos=16)
 require(Rcmdr)
 source('utils.R')
 
-gh <- read.table("repos_cmt_day_maior_age.csv",
+gh <- read.table("repos_final.csv",
   header=TRUE, sep=";", na.strings="NA", dec=".", strip.white=TRUE)
 
 #remove dupls!
@@ -17,6 +18,9 @@ gh <- within(gh, {
   Last.Updated.at..Month. <- as.factor(Last.Updated.at..Month.)
   Last.Updated.at..Year. <- as.factor(Last.Updated.at..Year.)
 })
+
+gh_lang_simp <- read.table("repos_final_lang_simp.csv",
+  header=TRUE, sep=";", na.strings="NA", dec=".", strip.white=TRUE)
 
 # write.csv2(gh, file = "limpo.csv", row.names=FALSE, fileEncoding = "UTF-8")
 attach(gh)
@@ -32,6 +36,13 @@ dfplot(gh_org, 'org')
 png(paste('correlacoes/', "total_cmts_created_year.png", sep=''))
 Boxplot(Total.Commits~Created.at..Year., data=gh, id.method="y")
 dev.off()
+
+
+png(paste('histograms/', "total_languages_pie.png", sep=''))
+with(gh_lang_simp, pie(table(Language), labels=levels(Language), xlab="",
+  ylab="", main="Language", col=rainbow_hcl(length(levels(Language)))))
+dev.off()
+
 
 ### shapiro test
 
