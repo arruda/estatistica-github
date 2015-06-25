@@ -47,6 +47,11 @@ png(paste('histograms/', "total_has_wiki_pie.png", sep=''))
 with(gh, pie(table(Has.Wiki), labels=levels(Has.Wiki), xlab="", ylab="",
   main="Has.Wiki", col=rainbow_hcl(length(levels(Has.Wiki)))))
 dev.off()
+
+
+png(paste('correlacoes/', "total_stars_vs_language.png", sep=''))
+Boxplot(Stars~Language, data=gh_lang_simp, id.method="y")
+dev.off()
 ### shapiro test
 
 png(paste('shapiro_test/', "total_qqnorm_star.png", sep=''))
@@ -135,6 +140,17 @@ gh <- within(gh, {Clusters.Cmts <-  as.factor(res.hcpc$data.clust$clust)})
 png(paste('correlacoes/', "total_stars_clusters.png", sep=''))
 Boxplot(Stars~Clusters.Cmts, data=gh, id.method="y")
 dev.off()
+clust1 <- gh[with(gh, which(Clusters.Cmts == 1)), ]
+clust14 <- gh[with(gh, which(Clusters.Cmts == 14)), ]
+clust11 <- gh[with(gh, which(Clusters.Cmts == 11)), ]
+clust12 <- gh[with(gh, which(Clusters.Cmts == 12)), ]
+clust13 <- gh[with(gh, which(Clusters.Cmts == 13)), ]
+clust12.13 <- rbind(clust12, clust13)
+
+numSummary(clust1[,c("Forks", "Stars", "Total.Commits")], statistics=c("mean", "IQR", "quantiles", "cv"), quantiles=c(0,.25,.5,.75,1))
+numSummary(clust14[,c("Forks", "Stars", "Total.Commits")], statistics=c("mean", "IQR", "quantiles", "cv"), quantiles=c(0,.25,.5,.75,1))
+numSummary(clust11[,c("Forks", "Stars", "Total.Commits")], statistics=c("mean", "IQR", "quantiles", "cv"), quantiles=c(0,.25,.5,.75,1))
+numSummary(clust12.13[,c("Forks", "Stars", "Total.Commits")], statistics=c("mean", "IQR", "quantiles", "cv"), quantiles=c(0,.25,.5,.75,1))
 
 
 #lixo
