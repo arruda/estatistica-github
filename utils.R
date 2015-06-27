@@ -140,3 +140,23 @@ analise_fat <-function(data.frame, prefix){
     sink()
     return(df)
 }
+
+
+
+
+media_cmts_final_semana <-function(data.frame){
+    df <- data.frame
+    return(with(df, mean(Num..Cmts..Dom + Num..Cmts..Sab)))
+}
+
+media_cmts_dias_uteis <-function(data.frame){
+    df <- data.frame
+
+    res <- with(df,
+        mean(Num..Cmts..Seg + Num..Cmts..Ter +
+            Num..Cmts..Qua + Num..Cmts..Qui + Num..Cmts..Sex
+        )
+    )
+
+    return(res)
+}
