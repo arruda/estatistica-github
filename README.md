@@ -1,6 +1,6 @@
 ## Banco de Dados
 
-[repos_cmt_day_maior_age.csv](/repos_cmt_day_maior_age.csv)
+[repos_final.csv](/repos_final.csv)
 
 ## Variaveis:
  * name
@@ -9,13 +9,14 @@
  * updated_at (separar em colunas para dia, mes e ano?)
  * size (tamanho do repositorio)
  * stargazers_count (numero de pessoas que deram uma estrela no repositorio)
- * watchers_count (numero de pessoas que estão 'assinando' esse repositorio, e recebendo atualizações do que acontece nele)
  * language (linguagem principal usada no projeto)
  * has_wiki (se esse repositorio tem alguma wiki no proprio github, dai podemos tentar cruzar se os repositorios q tem wikis são mais propensos a serem famosos, já q as pessoas entendem do q ele se trata com a documentação da wiki)
  * forks_count (numero de pessoas que criaram uma copia/vertente desse projeto)
  * open_issues (numero de bugs/features, relatadas, em aberto)
  * Numero de commits por dia da semana (uma coluna para cada dia)
 
+# Rodar script R
+`R CMD BATCH relatorio.R`
 
 # gerar o BD:
 
